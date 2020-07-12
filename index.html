@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css-reset.css" />
+    <script src="two.js"></script>
+    <script src="jspdf.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <title>Flex Configurator</title>
+  </head>
+  <body>
+    <!-- WHOLE BODY CONTAINER -->
+    <div class="container">
+      <!-- HEADER SECTION -->
+      <header>
+        <div class="logo">
+          <a href="index.html">
+            <img src="img/logo_EDT.png" height="80px" />
+            <img src="img/logo_BKS.png" height="80px" />
+          </a>
+        </div>
+
+        <!-- NAVIGATION BAR -->
+        <nav class="thinFont">
+          <div class="navbutton">
+            <a href="#">Flex Configurator</a>
+          </div>
+          <div class="navbutton">
+            <a href="#">Contact</a>
+          </div>
+        </nav>
+      </header>
+
+      <!-- BODY SECTION -->
+      <div class="main2">
+        <div class="flex-container">
+          <!-- CANVAS -->
+          <div class="configurator-box" id="graphicsWindow">
+            <!-- <div id="graphicsWindow"></div> -->
+          </div>
+
+          <!-- SETTINGS / FORM -->
+          <div class="settings edtdark">
+            <form action="#">
+              <!-- ENCRYPTION SECTION -->
+              <div class="encryption">
+                <div class="encryptPos">
+                  <p class="encryptP">ENCRYPTION</p>
+                </div>
+                <div class="encryptPos">
+                  <input
+                    type="button"
+                    class="encryptButton"
+                    value=""
+                    id="md5"
+                  />
+                </div>
+              </div>
+
+              <!-- DOWNLOAD SECTION -->
+              <div class="download">
+                <button class="button button1" id="download">
+                  Download as PDF
+                </button>
+              </div>
+
+              <!-- DIMENSION SECTION -->
+              <div class="dimensions">
+                <input
+                  type="button"
+                  class="button button1"
+                  value="Flex dimensions"
+                  onclick="showHideFlexDimensionsDiv()"
+                />
+                <div class="flexContainerForParams" id="flexDimensionsDiv">
+                  <div class="params">
+                    <label for="flexLength"
+                      >L - Length of flexible element</label
+                    >
+                    <input id="flexLength" type="number" value="310" step="5" />
+                  </div>
+
+                  <div class="params">
+                    <label for="flexWidth">
+                      W - Width of flexible element</label
+                    >
+                    <input id="flexWidth" type="number" value="100" step="20" />
+                  </div>
+
+                  <div class="params">
+                    <label for="contactLength1"
+                      >L1 - Length of contact surface 1</label
+                    >
+                    <input
+                      id="contactLength1"
+                      type="number"
+                      value="80"
+                      step="10"
+                    />
+                  </div>
+                  <div class="params">
+                    <label for="contactLength2"
+                      >L2 - Length of contact surface 2</label
+                    >
+                    <input
+                      id="contactLength2"
+                      type="number"
+                      value="80"
+                      step="10"
+                    />
+                  </div>
+
+                  <div class="params">
+                    <label for="flexThk">T - Thickness</label>
+                    <input id="flexThk" type="number" value="10" step="1" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- MATERIAL SECTION -->
+              <div class="material">
+                <input
+                  type="button"
+                  class="button button1"
+                  value="Material"
+                  onclick="showHideMaterialDiv()"
+                />
+              </div>
+              <div class="flexContainerForParams" id="materialDiv">
+                <div class="paramsRadio">
+                  <input
+                    id="coatingTinplated"
+                    type="radio"
+                    name="coating"
+                    value="coatingTinplated"
+                    checked
+                  />
+                  <label for="coatingTinplated">Tin Plated</label>
+                </div>
+                <div class="paramsRadio">
+                  <input
+                    id="coatingSilverplated"
+                    type="radio"
+                    name="coating"
+                    value="coatingSilverplated"
+                  />
+                  <label for="coatingSilverplated">Silver plated</label>
+                </div>
+                <div class="paramsRadio">
+                  <input
+                    id="coatingBlank"
+                    type="radio"
+                    name="coating"
+                    value="coatingSilverplated"
+                  />
+                  <label for="coatingBlank">Bare copper</label>
+                </div>
+              </div>
+
+              <!-- HOLE PARAMETERS -->
+              <!-- BUTTON -->
+              <div class="holeParameters">
+                <input
+                  type="button"
+                  id="btnHoleParams"
+                  class="button button1"
+                  value="Hole parameters"
+                  onclick="showHideHoleParameters()"
+                />
+              </div>
+
+              <!-- PARAMETERS -->
+              <div class="flexContainerForParams" id="holeParameters">
+                <div class="paramsRadio">
+                  <input
+                    type="checkbox"
+                    id="chkPreview"
+                    name="chkPreview"
+                    checked
+                  />
+                  <label for="chkPreview">Hole position preview</label>
+                </div>
+
+                <div class="doubleRadio">
+                  <div class="paragraph">Slot orientation:</div>
+                  <div class="radioButton">
+                    <input
+                      id="slotVertical"
+                      type="radio"
+                      name="slotOrientation"
+                      value="slotOrientation"
+                      checked
+                    />
+                    <label for="slotVertical">Vertical</label>
+
+                    <input
+                      id="slotHorizontal"
+                      type="radio"
+                      name="slotOrientation"
+                      value="slotHorizontal"
+                    />
+                    <label for="slotHorizontal">Horizontal</label>
+                  </div>
+                </div>
+
+                <div class="doubleRadio">
+                  <div class="paragraph">Add to contact surface:</div>
+                  <div class="radioButton">
+                    <input
+                      id="contactTop"
+                      type="radio"
+                      name="addToContact"
+                      value="true"
+                      checked
+                    />
+                    <label for="contactTop">Top</label>
+
+                    <input
+                      id="contactBottom"
+                      type="radio"
+                      name="addToContact"
+                      value="false"
+                    />
+                    <label for="contactBottom">Bottom</label>
+                  </div>
+                </div>
+
+                <div class="doubleRadio">
+                  <div class="paragraph">
+                    Slot size:
+                  </div>
+                  <div class="radioButton">
+                    <input id="slotWidth" type="number" value="14" step="1" />
+                    <input id="slotLength" type="number" value="26" step="1" />
+                  </div>
+                </div>
+
+                <div class="params">
+                  <label for="holeDia">Hole dia:</label>
+                  <input id="holeDia" type="number" value="14" step="1" />
+                </div>
+              </div>
+              <!-- ADD INDIVIDUAL HOLES -->
+              <div class="individualHoles">
+                <input
+                  id="indivHoleDivBtn"
+                  type="button"
+                  class="button button1"
+                  value="Add individual holes"
+                  onclick="showHideIndividualHolesDiv()"
+                />
+              </div>
+
+              <div class="flexContainerForParams" id="individualHoles">
+                <div class="smallButtons">
+                    <div class="smallButtonsPos">
+                      <button id="addSlot" class="smallButtonsDetail">Add slot</button>
+                    </div>
+                    <div class="smallButtonsPos">
+                      <button id="addHole" class="smallButtonsDetail">Add hole</button>
+                    </div>
+                    <div class="smallButtonsPos">
+                      <button id="btnUndo" class="smallButtonsDetail">Undo</button>
+                    </div>
+                  </div>
+
+                <div class="params">
+                  <label for="slotCenterX">Center distance from left:</label>
+                  <input id="slotCenterX" type="number" value="20" step="10" />
+                </div>
+
+                <div class="params">
+                  <label for="slotCenterX">Center distance from end: </label>
+                  <input id="slotCenterY" type="number" value="20" step="10" />
+                </div>
+              </div>
+              <!-- PATTERNED HOLES -->
+              <div class="patternedHoles">
+                <input
+                  id="patternedDivBtn"
+                  type="button"
+                  class="button button1"
+                  value="Add patterned holes"
+                  onclick="showHidePatternedHolesDiv()"
+                />
+              </div>
+
+              <div class="flexContainerForParams" id="patternedHoles">
+                <div class="smallButtons">
+                  <div class="smallButtonsPos">
+                    <button id="addPatternedSlot" class="smallButtonsDetail">Add slot pattern</button>
+                  </div>
+                  <div class="smallButtonsPos">
+                    <button id="addPatternedHole" class="smallButtonsDetail">Add hole pattern</button>
+                  </div>
+                  <div class="smallButtonsPos">
+                    <button id="btnUndoPattern" class="smallButtonsDetail">Undo</button>
+                  </div>
+                </div>
+
+                <div class="params">
+                  <label for="patternFromEnd">First row from end:</label>
+                  <input
+                    id="patternFromEnd"
+                    type="number"
+                    value="20"
+                    step="10"
+                  />
+                </div>
+
+                <div class="params">
+                  <label for="patternWidth">Pattern width:</label>
+                  <input id="patternWidth" type="number" value="50" step="10" />
+                </div>
+                <div class="params">
+                  <label for="patternLength">Pattern length:</label>
+                  <input
+                    id="patternLength"
+                    type="number"
+                    value="40"
+                    step="10"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footer-content">
+          <p>The website was made by <a href="http://www.edt-one.com/">EDT-ONE kft.</a> </p>
+
+        </div>
+      </footer>
+    </div>
+  </body>
+  <script type="text/javascript" src="md5.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+</html>

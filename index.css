@@ -1,0 +1,375 @@
+html {
+  height: 100%
+}
+:root{
+  --Thin-Font: 100;
+  --ThinNormal-Font:200;
+  --Normal-Font: 300;
+  --Thick-Font: 400;
+  --Font-Family: 'Roboto', sans-serif;
+}
+.thinFont{
+  font-family: var(--Font-Family);
+  font-weight: var(--Thin-Font);
+}
+.normalFont{
+  font-family: var(--Font-Family);
+  font-weight: var(--Normal-Font);
+}
+.thickFont{
+  font-family: var(--Font-Family);
+  font-weight: var(--Thick-Font);
+}
+body{
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.125rem;
+  position:absolute; 
+  top:0; 
+  bottom:0; 
+  right:0; 
+  left:0; 
+  background:white;
+  min-height: 100%;
+}
+a{
+  color: #235059;
+}
+.container{
+  background-color: white;
+  width: 1024px;
+  min-height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+header{
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  border-bottom: 1px solid  #235059 ;
+}
+.navbutton{
+  color:  #235059;
+  border:1px solid  #235059;
+  padding: 10px 30px;
+  border-radius: 2px;
+  /* box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.226); */
+  display: inline-block;
+  position: relative;
+}
+.navbutton:hover{
+  background-color: #235059;
+  color: white;
+}
+.navbutton:hover a{
+  color: white;
+}
+.main2{
+  width: 100%;
+  min-height: 100%;
+}
+.flex-container{
+  display: flex;
+  flex-direction:row-reverse;
+  justify-content: center;
+  /* background-color: hotpink; */
+}
+/* Settings is equel to #sidebar */
+
+.settings{
+  text-align: left;
+  font-family: var(--Font-Family);
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 40px;
+  /* background-color: grey; */
+}
+.configurator-box {
+  background-color: white;
+  /* border: 1px solid #eee; */
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); */
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  color: #555;
+  background-color: white;
+  
+}
+.encryption{
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.encryptP{
+  text-align: center;
+  margin-top: 20px;
+  margin-right: 0px;
+  /* margin-bottom: 50px; */
+  padding: 5px 0px 20px 0px;
+  box-sizing: border-box;
+  font-family: var(--Font-Family);
+  font-weight: var(--Thick-Font);
+  font-size: 1.5 rem;
+}
+.encryptPos{
+  padding: 0px 0px 20px 0px;
+  box-sizing: border-box;
+  font-family: var(--Font-Family);
+  font-weight: var(--Thick-Font);
+  font-size: 1.5 rem;
+}
+.encryptButton{
+  text-align: center;
+  margin-top: 10px;
+  padding: 20px 0px 20px 0px;
+  background-color: white;
+  color: black;
+  border: 2px solid #235059;
+  font-family: var(--Font-Family);
+  font-weight: var(--Thick-Font);
+  font-size: 0.85rem;
+  width: 250px;
+}
+.encryptButton:hover {
+  background-color: #235059;
+  color: white;
+}
+.encryptInner{
+  margin-top: 20px;
+  padding-bottom: 20px;
+  padding: 0px 0px 20px 0px;
+  font-family: var(--Font-Family);
+  font-weight: var(--Thick-Font);
+  font-size: 1.5 rem;
+}
+.download{
+  margin-top: 0px;
+}
+.flexContainerForParams{
+  display: flex;
+  flex-direction:column;
+  justify-content: space-between;
+}
+.params{
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
+
+}
+.params label{
+  width: 90;
+  text-align: left;
+  margin-top: 3px;
+  font-family: var(--Font-Family);
+  font-weight: var(--Normal-Font);
+  /* background-color: greenyellow; */
+}
+.params input[type=number]{
+  text-align: center;
+  padding: 5px 0px;
+  /* background-color: dodgerblue; */
+  border: 1px solid #ddd;
+  color: black;
+  font-family: var(--Font-Family);
+  font-weight: var(--Normal-Font);
+  /* background-color: lightblue; */
+}
+.params input[type=radio]{
+  text-align: left;
+  padding: 5px 0px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: black;
+  margin: 3px 3px;
+  display: contents;
+}
+.paramsRadio{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  padding: 5px;
+}
+.paramsRadio label{
+  width: auto;
+  text-align: left;
+  vertical-align: center;
+  font-family: var(--Font-Family);
+  font-weight: var(--Normal-Font);
+  margin: 0px;
+  /* background-color: lightsalmon; */
+}
+.paramsRadio input[type=radio]{
+  text-align: right;
+}
+.doubleRadio{
+display: flex;
+flex-flow: row wrap;
+justify-content: space-between;
+margin: 0px 5px;
+}
+.doubleRadio label{
+  font-family: var(--Font-Family);
+  font-weight: var(--Normal-Font);
+}
+.paragraph{
+  padding-top: 2px;
+  font-family: var(--Font-Family);
+  font-weight: var(--Normal-Font);
+}
+.radioButton input[type=number]{
+  text-align: center;
+  padding: 5px 0px;
+  /* background-color: dodgerblue; */
+  border: 1px solid #ddd;
+  color: black;
+  font-family: var(--Font-Family);
+  font-weight: var(--Normal-Font);
+}
+#slotWidth{
+margin-left: 10px;
+}
+
+.button {
+  background-color: #235059;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  width: 350px;
+  background-color: white;
+  color: black;
+  border: 2px solid #235059;
+  font-family: var(--Font-Family);
+  font-weight: var(--Thick-Font);
+  font-size: 1.05rem;
+}
+.button1:hover {
+  background-color: #235059;
+  color: white;
+}
+.smallButtonsDetail{
+  /* width: 33%; */
+  padding: 5px 10px;
+  background-color: white;
+  color: black;
+  border: 1px solid #235059;
+  font-family: var(--Font-Family);
+  font-weight: 300;
+  font-size: 1.05rem;
+  border-radius: 5px;
+}
+.smallButtonsDetail:hover {
+  background-color: #235059;
+  color: white;
+  cursor: pointer;
+}
+.smallButtons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+p {
+  font-family: Roboto;
+}
+h1 {
+  font-family: Roboto;
+}
+.edtdark {
+  color: #184852;
+}
+.edtlight {
+  color: #8cbc28;
+}
+#sideBar {
+  width: 300px;
+  position: static;
+}
+
+#sideBar2 {
+  width: 300px;
+}
+
+#menuBar {
+  width: 300px;
+
+  float: top;
+  top: 100px;
+}
+/* 
+#graphicsWindow {
+  float: center;
+  width: 60%;
+} */
+
+/* #titleBlock {
+  float: right;
+  width: 100%;
+  height: 80px;
+  left: 310px;
+  position: fixed;
+  z-index: 1;
+} */
+
+/* #flexDimensionsDiv {
+  display: block;
+}
+
+#materialDiv {
+  display: block;
+}
+
+#individualHoles {
+  display: block;
+}
+
+#patternedHoles {
+  display: block;
+}
+
+ #holeParameters {
+  display: block;
+} */
+
+input[type="number"] {
+  width: 50px;
+  height: 18px;
+  float: right;
+}
+/* 
+input[id="md5"] {
+  width: 250px;
+  height: 18px;
+  float: right;
+} */
+footer {
+  width: 100%;
+  height: auto;
+  padding: 20px 0px ;
+  display: flex;
+  justify-content: center;
+  background-color: #235059
+   /* #235059; */
+}
+.footer-content {
+  color: white;
+  margin: 0px 10px;
+}
+.footer-content a{
+  color: #8cbc28;
+}

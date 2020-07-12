@@ -1,0 +1,306 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="two.js"></script>
+	<script src="jspdf.min.js"></script>
+	<link rel="stylesheet" href="index.css">
+	
+<title>Flex configurator</title>
+
+</head>
+  <body >	
+	<div id= "wrapper" class="configurator-box">
+		<div id= "graphicsWindow" >
+			
+		</div>
+	
+		<div id="iconCorner" >
+		
+			<img src="img/logo_EDT.png" height="80px">
+			<img src="img/logo_BKS.png" height="80px">
+
+		</div>
+			
+	<div id= "sideBar" class="edtdark">
+	
+		
+			<p>	
+			MD5
+			<input type="button" class="button1" value="MD5"  id="md5">	
+			</p>		
+				
+			<button class="button button1" id="download">Download as PDF</button>
+
+			
+			<p>	
+			<input type="button" class="button button1" value="Flex dimensions" onclick="showHideFlexDimensionsDiv()">	
+			</p>
+			
+			
+			<div id= "flexDimensionsDiv">
+			<p>
+			L - Length of flexible element
+			<input id="flexLength" type="number" value="310" step="5"></input> 
+			<br>
+			W - Width of flexible element
+			<input id="flexWidth" type="number" value="100" step="20"></input> 
+			<br>
+			L1 - Length of contact surface 1
+			<input id="contactLength1" type="number" value="80" step="10"></input> 
+			<br>
+			L2 - Length of contact surface 2
+			<input id="contactLength2" type="number" value="80" step="10"></input> 
+			<br>
+			T - Thickness
+			<input id="flexThk" type="number" value="10" step="1"></input> 
+			</p>
+			</div>
+			<script>
+			function showHideFlexDimensionsDiv() {
+			  var x = document.getElementById("flexDimensionsDiv");
+			  if (x.style.display == "none") {
+				x.style.display = "block";
+			  } else {
+				x.style.display = "none";
+			  }
+			}
+			</script>
+			
+			
+			
+			
+			
+			
+			
+			<p>	
+			<input type="button" class="button button1" value="Material" onclick="showHideMaterialDiv()">	
+			</p>
+			
+			
+			<div id= "materialDiv">
+			<p>
+			<input id="coatingTinplated" type="radio"  name="coating" value = "true" checked> Tin plated<br>
+			<input id="coatingSilverplated" type="radio"  name="coating" value=false> Silver plated<br>
+			<input id="coatingBlank" type="radio" name="coating" value=false> Bare copper<br>
+			</p>
+			</div>
+			
+			<script>
+			function showHideMaterialDiv() {
+			  var x = document.getElementById("materialDiv");
+			  if (x.style.display === "none") {
+				x.style.display = "block";
+			  } else {
+				x.style.display = "none";
+			  }
+			}
+			</script>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<p>	
+			<input type="button" id="btnHoleParams" class="button button1" value="Hole parameters" onclick="showHideHoleParameters()">
+			</p>
+			
+			
+			<div id= "holeParameters">
+			<p>	
+	
+			<input type="checkbox" id="chkPreview" name="chkPreview" checked>Hole position preview
+			<br>
+			
+			Slot orientation: 
+			<input id="slotVertical" type="radio"  name="slotOrientation" value=true checked> Vertical
+			<input id="slotHorizontal" type="radio" name="slotOrientation" value=false> Horizontal
+			<br>
+			Add to contact surface: 
+			<input id="contactTop" type="radio"  name="addToContact" value=true checked> Top
+			<input id="contactBottom" type="radio" name="addToContact" value=false> Bottom
+			<br>
+			Slot size: </input> <input id="slotWidth" type="number" value="14" step="1"></input><input id="slotLength" type="number" value="26" step="1">
+			<br>
+			Hole dia: <input id="holeDia" type="number" value="14" step="1">
+			<br>
+			
+			</div>
+			
+			<script>
+			function showHideHoleParameters() {
+			  var x = document.getElementById("holeParameters");
+			  if (x.style.display === "none") {
+				x.style.display = "block";
+			  } else {
+				x.style.display = "none";
+			  }
+			}
+			</script>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<p>	
+			<input id="indivHoleDivBtn" type="button" class="button button1" value="Add individual holes" onclick="showHideIndividualHolesDiv()">
+			</p>
+			
+			
+			<div id= "individualHoles">
+		
+			
+			<p>
+
+			
+			
+			<button id="addSlot">Add slot</button>
+			<button id="addHole">Add hole</button>
+			<button id="btnUndo">Undo</button>
+			<br>
+			<br>
+			Center distance from left: <input id="slotCenterX" type="number" value="20" step="10" ></input>
+			<br>
+
+			Center distance from end: <input id="slotCenterY" type="number" value="20" step="10" ></input>
+			<br>
+			
+			
+			<!--
+			<br>
+			Center distance from left: <input id="slotCenterXBottom" type="number" value="20" step="10"></input>
+			<br>
+
+			Center distance from end: <input id="slotCenterYBottom" type="number" value="20" step="10"></input>
+			<br>
+			<button id="addSlotBottom">Add slot</button>
+			<button id="addHoleBottom">Add hole</button>
+			<input type="checkbox" id="chkPreviewBottom" name="chkPreviewBottom" checked>Hole pos. preview<br>
+			-->
+			
+			</div>
+			
+			<script>
+			function showHideIndividualHolesDiv() {
+			  var x = document.getElementById("individualHoles");
+			  var y = document.getElementById("patternedHoles");
+			
+			  if (x.style.display === "none") {
+				x.style.display = "block";
+				y.style.display = "none";
+				/*
+				document.getElementById("chkPreview").checked = "";
+				*/
+			  } else {
+				x.style.display = "none";
+				/*
+				document.getElementById("chkPatternPreview").checked = "";
+				document.getElementById("chkPreview").checked = "checked";
+				*/
+			  }
+			  updatePreview()
+			}
+			</script>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<p>	
+			<input id="patternedDivBtn" type="button" class="button button1" value="Add patterned holes" onclick="showHidePatternedHolesDiv()">
+			</p>
+			
+			
+			<div id= "patternedHoles">
+
+
+			<p>
+			<!--
+			<input type="checkbox" id="chkPatternPreview" name="chkPatternPreview" checked>Preview
+			<br>
+			<br>
+			-->
+			<button id="addPatternedSlot">Add slot pattern</button>
+			<button id="addPatternedHole">Add hole pattern</button>
+			<button id="btnUndoPattern">Undo</button>
+			<br>
+			<br>
+			First row from end: <input id="patternFromEnd" type="number" value="20" step="10" ></input>
+			<br>
+
+			Pattern width: <input id="patternWidth" type="number" value="50" step="10" ></input>
+			<br>
+			Pattern length: <input id="patternLength" type="number" value="40" step="10" ></input>
+			<br>
+			
+			</div>
+			
+			<script>
+			function showHidePatternedHolesDiv() {
+			  var x = document.getElementById("patternedHoles");
+			  var y = document.getElementById("individualHoles");
+
+			  if (x.style.display === "none") {
+				x.style.display = "block";
+				y.style.display = "none";
+				/*
+				document.getElementById("chkPatternPreview").checked = "";
+				*/
+			  } else {
+				x.style.display = "none";
+				/*
+				document.getElementById("chkPreview").checked = "";
+				document.getElementById("chkPatternPreview").checked = "checked";
+				*/
+			  }
+			  updatePreview()
+			}
+			</script>
+			
+			
+			
+			
+			
+			
+			
+			
+			<script type="text/javascript" src="md5.js"></script>	
+			<script type="text/javascript" src="script.js"></script>		
+				
+	</div>
+	
+
+	
+	
+			
+	
+	
+</div>		
+
+
+  </body>
+</html>

@@ -9,4 +9,4 @@ drawing to our manufacturer as we should.
 
 ## About the app
 This is a basic webapp, based on some input parameters it shows the part you'll want to produce and can export it to PDF to send it to production. This is a local html document, 
-running JavaScript on it. I tried to make it look as professional as I could, plus I prepared it for future data collection, for now it is not an online tool.
+running JavaScript on it. I didn't write the JavaScript part of the document but I tried to make it look as professional as I could, plus I prepared it for future data collection, for now it is not an online tool. This was chance for me to get my feet wet with HTML and CSS.
